@@ -18,10 +18,10 @@ pipeline {
        stage("build image") {
            steps {
                withCredentials([
-                   usernamePassword(credentials: 'dockerhub-credentials', usernameVariable: USERNAME, passwordVariable: PASSWORD)
+                   usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: USERNAME, passwordVariable: PASSWORD)
                ]) {
                    sh "docker build -i t abdessamadabidar/jenkins-demo:${APP_VERSION}"
-                   sh "echo ${PASSWORD} | docker login -u ${USERNAME} --password-stdin"
+                   sh "echo ${PASSWORD} | docker login -u ${PASSWORD} --password-stdin"
                    sh "docker push abdessamadabidar/jenkins-demo:${APP_VERSION}"
                }
            }
