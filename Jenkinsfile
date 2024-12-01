@@ -5,7 +5,7 @@ pipeline {
     }
 
     environment {
-        APP_VERSION: "jd-1.0.0"
+        APP_VERSION = "jd-1.0.0"
     }
 
     stages {
