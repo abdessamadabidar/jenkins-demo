@@ -23,7 +23,7 @@ pipeline {
                    ]) {
                        sh """
                            docker build -t abdessamadabidar/jenkins-demo:${APP_VERSION} .
-                           docker login -u $USERNAME -p $PASSWORD
+                           echo $PASSWORD | docker login -u $USERNAME --password-stdin
                            docker push abdessamadabidar/jenkins-demo:${APP_VERSION}
                        """
                    }
