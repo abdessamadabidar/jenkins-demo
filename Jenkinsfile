@@ -22,7 +22,6 @@ pipeline {
                        usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')
                    ]) {
                        sh """
-                            echo $USERNAME
                            docker build -t abdessamadabidar/jenkins-demo:${APP_VERSION} .
                            echo $PASSWORD | docker login -u $USERNAME --password-stdin
                            docker push abdessamadabidar/jenkins-demo:${APP_VERSION}
